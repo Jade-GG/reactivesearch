@@ -244,7 +244,7 @@ const DynamicRangeSlider = {
 
 			this.updateQuery({
 				componentId: this.$props.componentId,
-				query,
+				isInitialValue ? null : query,
 				value,
 				label: this.$props.filterLabel,
 				showFilter: this.$props.showFilter && !isInitialValue,
