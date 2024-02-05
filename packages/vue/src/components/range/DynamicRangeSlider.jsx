@@ -242,9 +242,11 @@ const DynamicRangeSlider = {
 			// check if the slider is at its initial position
 			const isInitialValue = currentStart === start && currentEnd === end;
 
+			let actualQuery = isInitialValue ? null : query;
+
 			this.updateQuery({
 				componentId: this.$props.componentId,
-				(isInitialValue ? null : query),
+				actualQuery,
 				value,
 				label: this.$props.filterLabel,
 				showFilter: this.$props.showFilter && !isInitialValue,
