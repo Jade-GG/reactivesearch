@@ -223,15 +223,7 @@ const DynamicRangeSlider = {
 		},
 
 		updateQueryHandler(value) {
-			const { start, end } = this.range || { start: value[0], end: value[1] };
-			const [currentStart, currentEnd] = value;
-			// check if the slider is at its initial position
-			const isInitialValue = currentStart === start && currentEnd === end;
-
-			let query = null;
-			if (!isInitialValue) {
-				query = DynamicRangeSlider.defaultQuery(value, this.$props);
-			}
+			let query = DynamicRangeSlider.defaultQuery(value, this.$props);
 
 			if (this.$props.customQuery) {
 				const customQueryTobeSet = this.$props.customQuery(value, this.$props);
@@ -245,13 +237,18 @@ const DynamicRangeSlider = {
 				this.setQueryOptions(this.$props.componentId, customQueryOptions, false);
 			}
 
+			const { start, end } = this.range || { start: value[0], end: value[1] };
+			const [currentStart, currentEnd] = value;
+			// check if the slider is at its initial position
+			const isInitialValue = currentStart === start && currentEnd === end;
+
 			this.updateQuery({
 				componentId: this.$props.componentId,
-				query,
+				(isInitialValue ? null : query),
 				value,
 				label: this.$props.filterLabel,
 				showFilter: this.$props.showFilter && !isInitialValue,
-				URLParams: this.$props.URLParams && !isInitialValue,
+				URLParams: this.$props.URLParams,
 				componentType: componentTypes.dynamicRangeSlider,
 			});
 		},
