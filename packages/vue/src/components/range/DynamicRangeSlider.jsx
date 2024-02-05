@@ -230,7 +230,7 @@ const DynamicRangeSlider = {
 
 			let query = null;
 			if (!isInitialValue) {
-				DynamicRangeSlider.defaultQuery(value, this.$props);
+				query = DynamicRangeSlider.defaultQuery(value, this.$props);
 			}
 
 			if (this.$props.customQuery) {
@@ -251,7 +251,7 @@ const DynamicRangeSlider = {
 				value,
 				label: this.$props.filterLabel,
 				showFilter: this.$props.showFilter && !isInitialValue,
-				URLParams: this.$props.URLParams,
+				URLParams: this.$props.URLParams && !isInitialValue,
 				componentType: componentTypes.dynamicRangeSlider,
 			});
 		},
