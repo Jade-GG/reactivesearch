@@ -115,7 +115,7 @@ const DynamicRangeSlider = {
 	},
 
 	beforeUpdate() {
-		if (!this.currentValue) {
+		if (!this.currentValue && this.range) {
 			this.setDefaultValue(this.range);
 		}
 	},
