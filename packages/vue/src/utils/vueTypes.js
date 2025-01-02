@@ -57,7 +57,7 @@ const types = {
 	filterLabel: VueTypes.string,
 	func: VueTypes.func,
 	funcRequired: VueTypes.func.isRequired,
-	fuzziness: VueTypes.oneOf([0, 1, 2, 'AUTO']),
+	fuzziness: VueTypes.string,
 	headers: VueTypes.object,
 	hits: VueTypes.arrayOf(VueTypes.object),
 	iconPosition: VueTypes.oneOf(['left', 'right']),
