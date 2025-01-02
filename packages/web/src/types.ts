@@ -20,7 +20,7 @@ export type fieldWeights = number[];
 
 export type filterLabel = string;
 
-export type fuzziness = 0 | 1 | 2 | 'AUTO';
+export type fuzziness = 0 | 1 | 2 | 'AUTO' | string;
 
 export type headers = object;
 
